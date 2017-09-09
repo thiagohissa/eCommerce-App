@@ -111,6 +111,7 @@
 				TargetAttributes = {
 					7E316A321F63025000AFD3C4 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 5HK2J922PF;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -280,7 +281,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5HK2J922PF;
 				INFOPLIST_FILE = eCommerce/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cplayground.eCommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -292,7 +295,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 5HK2J922PF;
 				INFOPLIST_FILE = eCommerce/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cplayground.eCommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+   let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//   let context = appDelegate.persistentContainer.viewContext
+   
+   
    //MARK: Properties
    @IBOutlet weak var mainCollectionView: UICollectionView!
    var arrayOfItems: [Items] = []
@@ -43,9 +48,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
    
    
    @IBAction func addToCartTapped(_ sender: UIButton) {
-      DispatchQueue.main.async {
-         sender.setTitle("ADDED", for: .normal)
+      let context = appDelegate.persistentContainer.viewContext
+      let item = self.arrayOfItems[sender.tag]
+      let data = UIImageJPEGRepresentation(item.itemImage, 1)
+
+      let itemToSave = NSEntityDescription.insertNewObject(forEntityName: "Cart", into: context)
+      itemToSave.setValue(item.itemID, forKey: "itemID")
+      itemToSave.setValue(data, forKey: "itemImage")
+      itemToSave.setValue(item.itemPriceTag, forKey: "itemPrice")
+      itemToSave.setValue(item.itemType, forKey: "itemType")
+      do {
+         try context.save()
+         DispatchQueue.main.async {
+            sender.setTitle("ADDED", for: .normal)
+         }
+      } catch {
+         print("Error trying to save to Cart")
       }
+      
    }
 
    
@@ -53,6 +73,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
    @IBAction func backButtonTapped(_ sender: UIButton) {
       dismiss(animated: true, completion: nil)
    }
+   
+   
+
+   
    
 
 
@@ -74,6 +98,7 @@ class ViewCell: UICollectionViewCell {
       DispatchQueue.main.async {
          sender.setImage(self.heartFilledImage, for: .normal)
       }
+//      let data = UIImagePNGRepresentation(img) as NSData?
    }
    
 

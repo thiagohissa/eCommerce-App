@@ -34,6 +34,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="filledHeart" selectedImage="filledHeart" id="MBc-RC-yrn">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="rect" keyPath="imageInsets">
+                                <rect key="value" x="6" y="0.0" width="-6" height="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oXu-zh-2y1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -56,32 +61,72 @@
                                 <rect key="frame" x="0.0" y="561" width="375" height="57"/>
                                 <color key="backgroundColor" red="0.23273199796676636" green="0.69080793857574463" blue="0.72168910503387451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="57" id="8QT-xe-lUH"/>
                                     <constraint firstAttribute="height" constant="57" id="aiJ-wG-H8j"/>
-                                    <constraint firstAttribute="width" constant="375" id="yL1-hC-aS5"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="375" id="bgr-6U-Vtm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="KohinoorDevanagari-Regular" family="Kohinoor Devanagari" pointSize="17"/>
                                 <state key="normal" title="CHECK OUT">
                                     <color key="titleColor" red="0.99989169836044312" green="1" blue="0.99988096952438354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="checkoutButton:" destination="BXB-ci-fTo" eventType="touchUpInside" id="Yt8-g2-dRr"/>
+                                </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="99" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PRO-FB-fz7">
-                                <rect key="frame" x="0.0" y="111" width="375" height="450"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="149" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PRO-FB-fz7">
+                                <rect key="frame" x="0.0" y="76" width="375" height="485"/>
+                                <color key="backgroundColor" red="0.98031002283096313" green="0.98059839010238647" blue="0.97210830450057983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="1kM-dQ-MoR">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="99"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" rowHeight="149" id="1kM-dQ-MoR" customClass="CartCell" customModule="eCommerce" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="149"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1kM-dQ-MoR" id="dJ1-v0-dPY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="148.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="model_shirt" translatesAutoresizingMaskIntoConstraints="NO" id="csp-fD-4d1">
+                                                    <rect key="frame" x="8" y="8" width="121" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Grey Shirt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBN-sV-Ff8">
+                                                    <rect key="frame" x="137" y="63" width="174" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Regular" family="Kohinoor Devanagari" pointSize="17"/>
+                                                    <color key="textColor" red="0.46413376672257695" green="0.46580933988764039" blue="0.4624581935575135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 24.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPZ-PI-VZv">
+                                                    <rect key="frame" x="301" y="22" width="66" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" red="0.18763712048530579" green="0.55348622798919678" blue="0.57573026418685913" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product ID: 001992" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ha-Qg-Qoe">
+                                                    <rect key="frame" x="241" y="115" width="126" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" red="0.46274509803921571" green="0.46666666666666667" blue="0.46274509803921571" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.98031002283096313" green="0.98059839010238647" blue="0.97210830450057983" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="cellImage" destination="csp-fD-4d1" id="bbA-Yo-E2t"/>
+                                            <outlet property="cellItemID" destination="4ha-Qg-Qoe" id="LB4-a9-jmL"/>
+                                            <outlet property="cellItemPrice" destination="tPZ-PI-VZv" id="4De-X3-Xvi"/>
+                                            <outlet property="cellItemType" destination="KBN-sV-Ff8" id="Sg6-Ka-DbC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BXB-ci-fTo" id="fCv-WX-ePs"/>
+                                    <outlet property="delegate" destination="BXB-ci-fTo" id="Sde-L5-K9R"/>
+                                </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hD-h8-vgX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1hD-h8-vgX">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="76"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cart Subtotal: $ 0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTY-ZB-6Z3">
                                         <rect key="frame" x="8" y="39" width="359" height="27"/>
@@ -92,18 +137,45 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.23273199796676636" green="0.69080793857574463" blue="0.72168910503387451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="76" id="ia0-uL-Gfo"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="1hD-h8-vgX" firstAttribute="leading" secondItem="5Nw-uq-DyG" secondAttribute="leading" id="43N-VC-Nsa"/>
+                            <constraint firstAttribute="trailing" secondItem="PRO-FB-fz7" secondAttribute="trailing" id="7Ud-qc-Jqe"/>
+                            <constraint firstItem="1hD-h8-vgX" firstAttribute="leading" secondItem="5Nw-uq-DyG" secondAttribute="leading" id="Gf1-we-nL4"/>
+                            <constraint firstItem="1hD-h8-vgX" firstAttribute="top" secondItem="5Nw-uq-DyG" secondAttribute="top" id="HaM-hN-h0N"/>
+                            <constraint firstItem="8dI-rj-TJc" firstAttribute="top" secondItem="PRO-FB-fz7" secondAttribute="bottom" id="M2c-m0-8NV"/>
+                            <constraint firstAttribute="trailing" secondItem="1hD-h8-vgX" secondAttribute="trailing" id="ONa-u9-DZc"/>
                             <constraint firstItem="uZQ-fx-mbA" firstAttribute="top" secondItem="8dI-rj-TJc" secondAttribute="bottom" id="QCh-5D-sFG"/>
+                            <constraint firstItem="PRO-FB-fz7" firstAttribute="top" secondItem="1hD-h8-vgX" secondAttribute="bottom" id="UGe-Ur-7b3"/>
+                            <constraint firstItem="PRO-FB-fz7" firstAttribute="leading" secondItem="5Nw-uq-DyG" secondAttribute="leading" id="UHx-Z9-9m6"/>
+                            <constraint firstItem="PRO-FB-fz7" firstAttribute="top" secondItem="1hD-h8-vgX" secondAttribute="bottom" id="VXf-Wh-GX8"/>
+                            <constraint firstAttribute="trailing" secondItem="1hD-h8-vgX" secondAttribute="trailing" id="YKp-Z8-UyR"/>
+                            <constraint firstItem="uZQ-fx-mbA" firstAttribute="top" secondItem="8dI-rj-TJc" secondAttribute="bottom" id="bFa-3X-o7e"/>
                             <constraint firstAttribute="trailing" secondItem="8dI-rj-TJc" secondAttribute="trailing" id="gJT-oc-cTs"/>
+                            <constraint firstItem="8dI-rj-TJc" firstAttribute="top" secondItem="PRO-FB-fz7" secondAttribute="bottom" id="gso-XM-VTP"/>
+                            <constraint firstItem="1hD-h8-vgX" firstAttribute="top" secondItem="5Nw-uq-DyG" secondAttribute="top" id="hQN-sK-IuZ"/>
+                            <constraint firstAttribute="trailing" secondItem="8dI-rj-TJc" secondAttribute="trailing" id="hiR-jf-uw3"/>
                             <constraint firstItem="8dI-rj-TJc" firstAttribute="leading" secondItem="5Nw-uq-DyG" secondAttribute="leading" id="lrT-Gh-YNn"/>
+                            <constraint firstItem="8dI-rj-TJc" firstAttribute="leading" secondItem="5Nw-uq-DyG" secondAttribute="leading" id="u6h-k7-Ax0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="cart" selectedImage="cart" id="beX-sb-EEC">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="rect" keyPath="imageInsets">
+                                <rect key="value" x="6" y="0.0" width="-6" height="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="mainTableView" destination="PRO-FB-fz7" id="M7I-AP-Oje"/>
+                        <outlet property="totalLabel" destination="cTY-ZB-6Z3" id="c8B-Ac-3Nx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="39n-os-yHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -121,9 +193,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="154" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pnT-Uh-glY">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="154" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pnT-Uh-glY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="616"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.23273199796676636" green="0.69080793857574463" blue="0.72168910503387451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
@@ -131,7 +202,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CAX-9C-kZm" id="sYB-Nh-Vi7">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="154"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="153.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rnp-dC-diS">
@@ -161,17 +232,15 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.23273199796676636" green="0.69080793857574463" blue="0.72168910503387451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="pnT-Uh-glY" secondAttribute="trailing" id="Ewp-0J-CII"/>
+                            <constraint firstItem="pnT-Uh-glY" firstAttribute="top" secondItem="sDQ-hq-4Yx" secondAttribute="top" id="HhC-Xz-bxn"/>
+                            <constraint firstItem="7Sw-Zn-crj" firstAttribute="top" secondItem="pnT-Uh-glY" secondAttribute="bottom" constant="2" id="eZ1-OU-Xqx"/>
+                            <constraint firstItem="pnT-Uh-glY" firstAttribute="leading" secondItem="sDQ-hq-4Yx" secondAttribute="leading" id="hRU-r6-JsB"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home" id="vvg-PF-uaJ">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.23273199796676636" green="0.69080793857574463" blue="0.72168910503387451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
-                                <color key="value" red="0.92146831750869751" green="0.92162626981735229" blue="0.92145836353302002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <connections>
                         <outlet property="mainTableView" destination="pnT-Uh-glY" id="4Oh-SA-UB3"/>
@@ -318,6 +387,7 @@
                                 <color key="backgroundColor" red="0.23137254901960785" green="0.69019607843137254" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="kD3-1T-oCY" secondAttribute="bottom" constant="8" id="0l0-5i-Rv4"/>
+                                    <constraint firstAttribute="height" constant="59" id="bB6-dN-md7"/>
                                     <constraint firstItem="kD3-1T-oCY" firstAttribute="leading" secondItem="0PQ-5s-AS3" secondAttribute="leading" constant="8" id="t8D-fc-OKn"/>
                                 </constraints>
                             </view>
