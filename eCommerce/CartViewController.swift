@@ -112,6 +112,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
    }
    
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+      if self.arrayOfItemsCart[indexPath.row].itemID != 404 {
       let context = self.appDelegate.persistentContainer.viewContext
       let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
       if let result = try? context.fetch(request) {
@@ -129,6 +130,7 @@ class CartViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.totalLabel.text = "Cart Subtotal: $ \(self.total)"
             self.mainTableView.reloadData()
          }
+      }
       }
    }
    

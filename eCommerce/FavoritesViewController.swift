@@ -93,6 +93,14 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
       cell.cellPrice.text = "$ \(item.itemPriceTag)"
       cell.cellType.text = item.itemType
       cell.cellHeart.tag = indexPath.row
+      if item.itemID == 404 {
+         cell.cellHeart.isHidden = true
+         cell.cellPrice.isHidden = true
+      }
+      else {
+         cell.cellHeart.isHidden = false
+         cell.cellPrice.isHidden = false
+      }
       return cell
    }
    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -106,6 +114,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
       return [deleteButton]
    }
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+      if self.arrayOfFavoriteItems[indexPath.row].itemID != 404 {
       let context = self.appDelegate.persistentContainer.viewContext
       let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Favorites")
       if let result = try? context.fetch(request) {
@@ -121,6 +130,7 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
             self.mainTableView.reloadData()
          }
       }
+      }
    }
 
    
@@ -129,24 +139,25 @@ class FavoritesViewController: UIViewController, UITableViewDelegate, UITableVie
    
    //MARK: IBActions
    @IBAction func cellHeartTapped(_ sender: UIButton) {
-      let context = appDelegate.persistentContainer.viewContext
-      let item = self.arrayOfFavoriteItems[sender.tag]
-      let data = UIImageJPEGRepresentation(item.itemImage, 1)
-      
-      let itemToSave = NSEntityDescription.insertNewObject(forEntityName: "Cart", into: context)
-      itemToSave.setValue(item.itemID, forKey: "itemID")
-      itemToSave.setValue(data, forKey: "itemImage")
-      itemToSave.setValue(item.itemPriceTag, forKey: "itemPrice")
-      itemToSave.setValue(item.itemType, forKey: "itemType")
-      do {
-         try context.save()
-         DispatchQueue.main.async {
-            sender.setTitle("ADDED", for: .normal)
+      if self.arrayOfFavoriteItems[sender.tag].itemID != 404 {
+         let context = appDelegate.persistentContainer.viewContext
+         let item = self.arrayOfFavoriteItems[sender.tag]
+         let data = UIImageJPEGRepresentation(item.itemImage, 1)
+         
+         let itemToSave = NSEntityDescription.insertNewObject(forEntityName: "Cart", into: context)
+         itemToSave.setValue(item.itemID, forKey: "itemID")
+         itemToSave.setValue(data, forKey: "itemImage")
+         itemToSave.setValue(item.itemPriceTag, forKey: "itemPrice")
+         itemToSave.setValue(item.itemType, forKey: "itemType")
+         do {
+            try context.save()
+            DispatchQueue.main.async {
+               sender.setTitle("ADDED", for: .normal)
+            }
+         } catch {
+            print("Error trying to save to Cart")
          }
-      } catch {
-         print("Error trying to save to Cart")
       }
-
    }
    
 }

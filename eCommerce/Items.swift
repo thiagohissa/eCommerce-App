@@ -20,7 +20,7 @@ class Items: NSObject {
       itemPriceTag = price
       itemType = aType
       if itemIDID == 0 {
-         itemID = Int(arc4random_uniform(99999) + arc4random_uniform(99999))
+         itemID = Int(arc4random_uniform(99999)+10000)
       }
       else {
          itemID = itemIDID
