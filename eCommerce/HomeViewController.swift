@@ -54,12 +54,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
          let vc = segue.destination as! ViewController
          vc.arrayOfItems = Model.shared.createSweaterItem()
       }
-      //      let transition = CATransition()
-      //      transition.duration = 0.3
-      //      transition.type = kCATransitionPush
-      //      transition.subtype = kCATransitionFromRight
-      //      self.view.window!.layer.add(transition, forKey: kCATransition)
-      //      present(segue.destination, animated: false, completion: nil)
    }
    
    

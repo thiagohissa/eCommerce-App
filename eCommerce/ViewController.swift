@@ -35,6 +35,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
       let item = self.arrayOfItems[indexPath.row]
       cell.cellImage.image = item.itemImage
       cell.cellLabel.text = "$ \(item.itemPriceTag)"
+      cell.favoriteCellButton.tag = indexPath.row
       cell.addToCartButton.tag = indexPath.row
       
       cell.cellView.layer.shadowColor = UIColor.black.cgColor
@@ -68,6 +69,26 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
       
    }
 
+   @IBAction func favoriteTapped(_ sender: UIButton) {
+      let heartFilledImage = UIImage(named: "filledHeart.png")
+      let context = appDelegate.persistentContainer.viewContext
+      let item = self.arrayOfItems[sender.tag]
+      let data = UIImageJPEGRepresentation(item.itemImage, 1)
+      
+      let itemToSave = NSEntityDescription.insertNewObject(forEntityName: "Favorites", into: context)
+      itemToSave.setValue(item.itemID, forKey: "itemID")
+      itemToSave.setValue(data, forKey: "itemImage")
+      itemToSave.setValue(item.itemPriceTag, forKey: "itemPrice")
+      itemToSave.setValue(item.itemType, forKey: "itemType")
+      do {
+         try context.save()
+         DispatchQueue.main.async {
+            sender.setImage(heartFilledImage, for: .normal)
+         }
+      } catch {
+         print("Error trying to save to Cart")
+      }
+   }
    
    //MARK: IBActions
    @IBAction func backButtonTapped(_ sender: UIButton) {
@@ -94,12 +115,7 @@ class ViewCell: UICollectionViewCell {
    @IBOutlet weak var cellImage: UIImageView!
    @IBOutlet weak var addToCartButton: UIButton!
    @IBOutlet weak var cellLabel: UILabel!
-   @IBAction func favoriteTapped(_ sender: UIButton) {
-      DispatchQueue.main.async {
-         sender.setImage(self.heartFilledImage, for: .normal)
-      }
-//      let data = UIImagePNGRepresentation(img) as NSData?
-   }
+
    
 
    
